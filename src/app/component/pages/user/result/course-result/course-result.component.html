@@ -1,0 +1,45 @@
+<div class="bg-gray-900 text-white">
+  <div
+    class="p-6 space-y-6 max-w-full mx-auto my-8 bg-gradient-to-r from-gray-800 via-gray-900 to-black"
+  >
+    <div
+      *ngFor="let temp of solveddataByUser"
+      class="flex flex-col space-y-2 bg-gray-900 p-4 rounded-md md:max-w-full mx-auto"
+    >
+      <h2 class="text-xl font-bold text-purple-400">
+        {{ temp.user.firstName }} {{ temp.user.lastName }} ({{
+          temp.user.username
+        }})
+      </h2>
+      <p class="text-blue-500">{{ temp.courseQuiz.title }}</p>
+
+      <p class="text-gray-400">
+        Attempted Date:
+        <span class="text-orange-300">{{ temp.createdAt }}</span>
+      </p>
+      <p class="text-gray-400">
+        Correct Ans:
+        <span class="font-bold text-green-400">{{ temp.correctAnswer }}</span>
+      </p>
+      <p class="text-gray-400">
+        Marks Obtained:
+        <span class="font-bold text-yellow-400">{{ temp.marksObtained }}</span>
+      </p>
+      <p class="text-gray-400">
+        Attempted Questions:
+        <span class="font-bold text-purple-400">{{ temp.attempted }}</span>
+      </p>
+      <button
+        *ngIf="temp.eligable"
+        [routerLink]="
+          '/user-dashboard/course/certificate/' + temp.courseQuiz.qid
+        "
+        mat-raised-button
+        color="primary"
+      >
+        Certificate
+      </button>
+    </div>
+    <hr class="border-gray-700" />
+  </div>
+</div>

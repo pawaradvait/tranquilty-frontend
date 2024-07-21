@@ -1,0 +1,27 @@
+<ng-container *ngFor="let temp of solveddataByUser">
+  <mat-card appearance="outlined">
+    <mat-card-title
+      >{{ temp.user.firstName }} {{ temp.user.lastName }} ({{
+        temp.user.username
+      }})</mat-card-title
+    >
+    <mat-card-subtitle>{{ temp.quiz.title }}</mat-card-subtitle>
+    Attempted Date:
+    <p>{{ temp.createdAt }}</p>
+    <mat-card-content>
+      <h3>
+        Email:
+        <span>
+          <b>{{ temp.user.email }}</b>
+        </span>
+      </h3>
+      <h3>
+        Quiz applied:
+        <span>
+          <b>{{ temp.quiz.title }}</b>
+        </span>
+      </h3>
+      <br />
+    </mat-card-content>
+  </mat-card>
+</ng-container>

@@ -1,0 +1,23 @@
+body {
+  background-color: #f8f9fa;
+}
+
+.card {
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.list-group-item {
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+button {
+  width: 50%;
+}

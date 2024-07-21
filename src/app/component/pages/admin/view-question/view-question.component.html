@@ -1,0 +1,35 @@
+<h1>Questions of {{ title }}</h1>
+<div class="container text-center"></div>
+<mat-card appearance="outlined" *ngFor="let temp of questions; let i = index">
+  <div class="question-container">
+    <div class="question-number">0{{ i + 1 }}</div>
+    <div class="question-text">{{ temp.content }}</div>
+  </div>
+  <div class="answers-container">
+    <div class="answer">
+      <span class="option">a.</span>
+      <span class="answer-text">{{ temp.op1 }}</span>
+    </div>
+    <div class="answer">
+      <span class="option">b.</span>
+      <span class="answer-text">{{ temp.op2 }}</span>
+    </div>
+    <div class="answer">
+      <span class="option">c.</span>
+      <span class="answer-text"> {{ temp.op3 }}</span>
+    </div>
+    <div class="answer">
+      <span class="option">d.</span>
+      <span class="answer-text">{{ temp.op4 }}</span>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <h3>correct Answer: {{ temp.answer }}</h3>
+  <button
+    (click)="deleteQuestion(temp.quesid)"
+    mat-raised-button
+    color="primary"
+  >
+    delete
+  </button>
+</mat-card>

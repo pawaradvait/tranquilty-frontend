@@ -1,0 +1,98 @@
+<ng-container *ngIf="!isSubmit">
+  <div class="bg-blue-950 min-h-screen flex items-center justify-center py-10">
+    <div class="bg-blue-100 p-8 rounded-lg shadow-lg max-w-4xl w-full relative">
+      <div
+        class="absolute top-4 right-4 bg-red-200 text-red-800 py-2 px-4 rounded-lg shadow-lg font-bold"
+        id="timer"
+      >
+        00:00
+      </div>
+      <h1 class="text-3xl font-bold text-center text-zinc-800 mb-4">
+        Vocabulary Test
+      </h1>
+      <p class="text-center text-zinc-600 mb-8">
+        Want to know how expansive your vocabulary is? Take this test and find
+        out!
+      </p>
+      <form (submit)="formofquestions()">
+        <div class="mb-6" *ngFor="let temp of questions; let i = index">
+          <h2 class="font-bold text-lg mb-2">
+            Q{{ i + 1 }} ) {{ temp.content }}
+          </h2>
+          <div class="grid grid-cols-2 gap-4">
+            <label
+              class="flex items-center bg-zinc-100 p-2 rounded-lg hover:bg-zinc-200"
+            >
+              <input
+                [(ngModel)]="temp.givenAnswer"
+                type="radio"
+                name="q{{ i }}"
+                class="mr-2"
+                value="{{ temp.op1 }}"
+              />
+              {{ temp.op1 }}
+            </label>
+            <label
+              class="flex items-center bg-zinc-100 p-2 rounded-lg hover:bg-zinc-200"
+            >
+              <input
+                [(ngModel)]="temp.givenAnswer"
+                type="radio"
+                name="q{{ i }}"
+                class="mr-2"
+                value="{{ temp.op2 }}"
+              />
+              {{ temp.op2 }}
+            </label>
+            <label
+              class="flex items-center bg-zinc-100 p-2 rounded-lg hover:bg-zinc-200"
+            >
+              <input
+                [(ngModel)]="temp.givenAnswer"
+                type="radio"
+                name="q{{ i }}"
+                class="mr-2"
+                value="{{ temp.op3 }}"
+              />
+
+              {{ temp.op3 }}
+            </label>
+            <label
+              class="flex items-center bg-zinc-100 p-2 rounded-lg hover:bg-zinc-200"
+            >
+              <input
+                [(ngModel)]="temp.givenAnswer"
+                type="radio"
+                name="q{{ i }}"
+                class="mr-2"
+                value="{{ temp.op4 }}"
+              />
+              {{ temp.op4 }}
+            </label>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <button
+            type="submit"
+            class="bg-[#FF6B6B] text-white py-2 px-6 rounded-full text-lg hover:bg-[#ff3b3b]"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="isSubmit">
+  <mat-card>
+    <ng-container *ngIf="marksobtained >= 60">
+      <h1>
+        congrats you are eligable for internship our team wull contact you
+      </h1>
+    </ng-container>
+    <ng-container *ngIf="marksobtained < 60">
+      <h1>Sorry you are failed!</h1>
+    </ng-container>
+  </mat-card>
+</ng-container>

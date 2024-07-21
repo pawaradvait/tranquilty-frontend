@@ -1,0 +1,32 @@
+<mat-card class="example-card" appearance="outlined">
+  <mat-card-header>
+    <mat-card-title class="text-center"> </mat-card-title>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+
+  <mat-card-content>
+    <div class="row" *ngFor="let temp of category">
+      <img [src]="'data:image/png;base64,' + temp.courseCategoryImage" />
+      <mat-divider></mat-divider>
+
+      <div class="col-1 text-center">
+        <mat-icon mat-list-item>category</mat-icon>
+      </div>
+      <div class="col-9">
+        <p>{{ temp.title }}</p>
+        <p>{{ temp.description }}</p>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-divider></mat-divider>
+
+  <div class="container">
+    <div class="row">
+      <div class="text-center">
+        <button routerLink="/admin/add-category" mat-raised-button>
+          Add categories
+        </button>
+      </div>
+    </div>
+  </div>
+</mat-card>

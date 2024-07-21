@@ -1,0 +1,67 @@
+<h1>Add Question to {{ title }}</h1>
+
+<mat-card appearance="outlined">
+  <form (ngSubmit)="Questionform()">
+    <div class="question-container">
+      <div class="question">
+        <span class="question-text">
+          <mat-form-field class="example-full-width">
+            <mat-label>Enter Question Here!</mat-label>
+            <textarea
+              [(ngModel)]="question.content"
+              name="content"
+              matInput
+            ></textarea>
+          </mat-form-field>
+        </span>
+      </div>
+      <div class="answers">
+        <div class="answer">
+          <label for="answer-a">a.</label>
+          <mat-form-field class="example-full-width">
+            <mat-label>Add Option 1 here</mat-label>
+            <input [(ngModel)]="question.op1" name="option1" matInput />
+          </mat-form-field>
+        </div>
+        <div class="answer">
+          <label for="answer-b">b.</label>
+          <mat-form-field class="example-full-width">
+            <mat-label>Add Option 2 here</mat-label>
+            <input [(ngModel)]="question.op2" name="option2" matInput />
+          </mat-form-field>
+        </div>
+        <div class="answer">
+          <label for="answer-c">c.</label>
+          <mat-form-field class="example-full-width">
+            <mat-label>Add Option 3 here</mat-label>
+            <input [(ngModel)]="question.op3" name="option3" matInput />
+          </mat-form-field>
+        </div>
+        <div class="answer">
+          <label for="answer-d">d.</label>
+          <mat-form-field class="example-full-width">
+            <mat-label>Add Option 4 here</mat-label>
+            <input [(ngModel)]="question.op4" name="option4" matInput />
+          </mat-form-field>
+        </div>
+        <mat-form-field>
+          <mat-label>Answer</mat-label>
+          <mat-select [(ngModel)]="question.answer" name="ans">
+            <mat-option [value]="question.op1">{{ question.op1 }}</mat-option>
+            <mat-option [value]="question.op2">{{ question.op2 }}</mat-option>
+            <mat-option [value]="question.op3">{{ question.op3 }}</mat-option>
+            <mat-option [value]="question.op4">{{ question.op4 }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" mat-raised-button color="primary">Register</button>
+      <button style="margin-left: 10px" mat-raised-button color="accent">
+        Accent
+      </button>
+    </div>
+  </form>
+</mat-card>
+<!-- {{ question | json }} -->

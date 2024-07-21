@@ -1,0 +1,19 @@
+mat-card {
+  margin-bottom: 20px;
+}
+
+.example-header-image {
+  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+  background-size: cover;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: red; /* Default color for inactive users */
+}
+
+.status-dot.ac {
+  background-color: green; /* Color for active users */
+}

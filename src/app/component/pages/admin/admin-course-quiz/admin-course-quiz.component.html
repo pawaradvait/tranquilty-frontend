@@ -1,0 +1,38 @@
+<mat-card class="example-card" appearance="outlined" *ngFor="let temp of quiz">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{ temp.title }} </mat-card-title>
+    <mat-card-subtitle>{{ temp.courseCategory?.title }}</mat-card-subtitle>
+    <div class="status-dot" [ngClass]="{ ac: temp.active }"></div>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p>{{ temp.description }}</p>
+
+    <button
+      [routerLink]="'/admin/course-question/' + temp.qid + '/' + temp.title"
+      mat-flat-button
+      color="accent"
+    >
+      Questions
+    </button>
+    <button mat-stroked-button color="accent">marks {{ temp.maxMarks }}</button>
+    <button
+      [routerLink]="'/admin/course-questions/' + temp.qid + '/' + temp.title"
+      mat-stroked-button
+      color="accent"
+    >
+      Questions:{{ temp.nosOfQuestion }}
+    </button>
+    <button
+      [routerLink]="'/admin/quiz/' + temp.qid"
+      mat-flat-button
+      color="accent"
+    >
+      Update
+    </button>
+    <button mat-flat-button color="accent" (click)="deleteQuiz(temp.qid)">
+      Delete
+    </button>
+  </mat-card-content>
+</mat-card>
